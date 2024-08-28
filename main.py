@@ -1,4 +1,5 @@
 import speech_recognition as sr
+import sounddevice as sd
 import librosa
 import os
 from assistanttools.actions import get_llm_response, message_history, preload_model
@@ -48,7 +49,7 @@ class WakeWordListener:
 
     def listen_for_wake_word(self):
         recognizer = sr.Recognizer()
-        os.system(f"espeak 'Hello. I am ready to assist you.'")
+        os.system(f"espeak 'Hello.'")
         while True:
             with sr.Microphone() as source:
                 print("Awaiting wake word...")
